@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:house_rent/constants.dart';
 
 class ContentAppbar extends StatelessWidget {
-  const ContentAppbar({
-    Key key,
-  }) : super(key: key);
+  final int index;
+  const ContentAppbar({Key key, @required this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,10 +12,14 @@ class ContentAppbar extends StatelessWidget {
       height: 400,
       child: Stack(
         children: [
-          Image.asset(
-            'assets/images/house01.jpeg',
-            fit: BoxFit.cover,
-            height: double.infinity,
+          ListView.builder(
+            itemCount: houseList[index].photoUrlList.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, secondIndex) => Image.asset(
+              houseList[index].photoUrlList[secondIndex],
+              fit: BoxFit.cover,
+              height: double.infinity,
+            ),
           ),
           SafeArea(
             child: Padding(

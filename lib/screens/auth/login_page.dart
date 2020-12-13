@@ -21,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Text('Sign in', style: TextStyle(fontSize: 35)),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
             child: TextFormField(
@@ -47,7 +48,6 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          //SizedBox(height: 20),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
             child: TextFormField(
@@ -78,7 +78,6 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          //LoginInput(),
           SizedBox(
             height: 20,
           ),

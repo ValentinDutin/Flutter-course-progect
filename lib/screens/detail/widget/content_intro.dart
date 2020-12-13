@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:house_rent/constants.dart';
 
 class ContentIntro extends StatelessWidget {
-  const ContentIntro({
-    Key key,
-  }) : super(key: key);
+  final int index;
+  const ContentIntro({Key key, @required this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +13,7 @@ class ContentIntro extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Дом сына маминой подруги',
+            houseList[index].name,
             style: TextStyle(
               color: mTitleTextColor,
               fontSize: 16,
@@ -23,7 +22,7 @@ class ContentIntro extends StatelessWidget {
           ),
           SizedBox(height: 6,),
           Text(
-            'Минск, улица Хорошей погоды, дом 8',
+            houseList[index].address,
             style: TextStyle(
               color: mBodyTextColor,
               fontSize: 14,
@@ -31,7 +30,7 @@ class ContentIntro extends StatelessWidget {
           ),
           SizedBox(height: 15,),
           Text(
-            '100 кв.м.',
+            houseList[index].square,
             style: TextStyle(
               color: mBodyTextColor,
               fontSize: 14,
@@ -39,7 +38,7 @@ class ContentIntro extends StatelessWidget {
           ),
           SizedBox(height: 6,),
           Text(
-            '\$120 в день',
+            houseList[index].price,
             style: TextStyle(
               color: mBodyTextColor,
               fontSize: 14,

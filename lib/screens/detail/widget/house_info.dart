@@ -3,9 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:house_rent/constants.dart';
 
 class HouseInfo extends StatelessWidget {
-  const HouseInfo({
-    Key key,
-  }) : super(key: key);
+  final int index;
+  const HouseInfo({Key key, @required this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +15,11 @@ class HouseInfo extends StatelessWidget {
           Row(
             children: [
               MenuIntro(
-                content: '12 спальных мест',
+                content: houseList[index].facilities.countBedroom,
                 imageUrl: 'assets/icons/bedroom.svg',
               ),
               MenuIntro(
-                content: '2 сан узла',
+                content: houseList[index].facilities.countBathroom,
                 imageUrl: 'assets/icons/bathroom.svg',
               )
             ],
@@ -29,11 +28,11 @@ class HouseInfo extends StatelessWidget {
           Row(
             children: [
               MenuIntro(
-                content: 'большая кухня\n20 кв.м.',
+                content: houseList[index].facilities.kitchenSquare,
                 imageUrl: 'assets/icons/kitchen.svg',
               ),
               MenuIntro(
-                content: '1 гараж',
+                content: houseList[index].facilities.countParking,
                 imageUrl: 'assets/icons/parking.svg',
               )
             ],

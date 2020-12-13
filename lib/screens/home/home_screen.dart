@@ -4,14 +4,10 @@ import 'package:house_rent/constants.dart';
 import 'package:android_intent/android_intent.dart';
 
 
-
 class HomeScreen extends StatefulWidget {
-
-
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
-
 
 class _HomeScreenState extends State<HomeScreen> {
   bool _onTap = false;

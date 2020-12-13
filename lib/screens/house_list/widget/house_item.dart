@@ -1,31 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:house_rent/constants.dart';
 import 'package:house_rent/screens/detail/detail_screen.dart';
 
-class RecommendedHouse extends StatelessWidget {
+class HouseItem extends StatelessWidget {
+  final int firstIndex;
+  HouseItem({Key key, @required this.firstIndex}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 340,
       child: ListView.builder(
-        itemCount: recommendedList.length,
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => GestureDetector(
+        itemCount: houseList[firstIndex].photoUrlList.length,
+        itemBuilder: (context, secondIndex) => GestureDetector(
           onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) {
-                  return DetailScreen();
-                },
+                  return DetailScreen(index: firstIndex);
+                  },
               ),
             );
-          },
+            },
           child: Container(
             width: 230,
             height: 300,
-            margin: EdgeInsets.only(left: 20),
+            margin: EdgeInsets.only(bottom: 40, left: 20),
             padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: Colors.white,
@@ -37,23 +39,10 @@ class RecommendedHouse extends StatelessWidget {
                   decoration: BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage(
-                          recommendedList[index].imageUrl,
+                          houseList[firstIndex].photoUrlList[secondIndex],
                         ),
-                        fit: BoxFit.cover),
-                  ),
-                ),
-                Positioned(
-                  right: 15,
-                  top: 15,
-                  child: Container(
-                    width: 20,
-                    height: 20,
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: mSecondaryColor,
-                      shape: BoxShape.circle,
+                        fit: BoxFit.cover
                     ),
-                    child: SvgPicture.asset('assets/icons/mark.svg'),
                   ),
                 ),
                 Positioned(
@@ -70,7 +59,7 @@ class RecommendedHouse extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                recommendedList[index].name,
+                                houseList[firstIndex].name,
                                 style: TextStyle(
                                   color: mTitleTextColor,
                                   fontSize: 16,
@@ -81,7 +70,7 @@ class RecommendedHouse extends StatelessWidget {
                                 height: 10,
                               ),
                               Text(
-                                recommendedList[index].address,
+                                houseList[firstIndex].address,
                                 style: TextStyle(
                                   color: mTitleTextColor,
                                   fontSize: 12,
@@ -90,20 +79,10 @@ class RecommendedHouse extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Container(
-                          width: 20,
-                          height: 20,
-                          padding: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            color: mSecondaryColor,
-                            shape: BoxShape.circle,
-                          ),
-                          child: SvgPicture.asset('assets/icons/heart.svg'),
-                        )
                       ],
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),

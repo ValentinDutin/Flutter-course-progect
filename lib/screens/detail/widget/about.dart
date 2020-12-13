@@ -1,7 +1,11 @@
-import 'package:flutter/material.dart';
 import 'package:house_rent/constants.dart';
+import 'package:flutter/material.dart';
 
 class About extends StatelessWidget {
+
+  final int index;
+  const About({Key key, @required this.index,}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -10,7 +14,7 @@ class About extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Информация',
+            'Information',
             style: TextStyle(
               color: mTitleTextColor,
               fontSize: 16,
@@ -19,8 +23,7 @@ class About extends StatelessWidget {
           ),
           SizedBox(height: 10,),
           Text(
-            'норм хата, советую!'
-                '5 минут от метро',
+            houseList[index].description,
             style: TextStyle(
               color: mBodyTextColor,
               fontSize: 14,

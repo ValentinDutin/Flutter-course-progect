@@ -6,25 +6,27 @@ import 'widget/content_intro.dart';
 import 'widget/house_info.dart';
 
 class DetailScreen extends StatelessWidget {
+  final int index;
+  const DetailScreen({Key key, @required this.index}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
         children: [
-          ContentAppbar(),
+          ContentAppbar(index: index),
           SizedBox(
             height: 20,
           ),
-          ContentIntro(),
+          ContentIntro(index: index),
           SizedBox(
             height: 20,
           ),
-          HouseInfo(),
+          HouseInfo(index: index),
           SizedBox(
             height: 25,
           ),
-          About(),
+          About(index: index),
           SizedBox(
             height: 25,
           ),
@@ -41,7 +43,7 @@ class DetailScreen extends StatelessWidget {
                 alignment: Alignment.center,
                 padding: EdgeInsets.symmetric(vertical: 14),
                 child: Text(
-                  'Зарезервировать сейчас',
+                  'Reserve now',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,

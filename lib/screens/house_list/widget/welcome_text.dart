@@ -13,7 +13,7 @@ class WelcomeText extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Добро пожаловать на SAFby!',
+            'Welcome to SAFby!',
             style: TextStyle(
               color: mTitleTextColor.withOpacity(0.8),
               fontSize: 16,
@@ -21,7 +21,7 @@ class WelcomeText extends StatelessWidget {
           ),
           SizedBox(height: 10,),
           Text(
-            'Найдите свой желанный дом для аренды',
+            'Find your sweet home',
             style: TextStyle(
               color: mTitleTextColor,
               fontSize: 20,

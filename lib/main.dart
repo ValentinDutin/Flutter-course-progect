@@ -24,10 +24,6 @@ class MyApp extends StatelessWidget {
         '/rent-house' : (context) => HouseListScreen(),
         '/login' : (context) => LoginPage(),
       }
-
-      //home: //LoginPage(),
-      //HomeScreen(),
-      //CategoryList(),
     );
   }
 }
